@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Modal - Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="open-button-container">
+        <button class="open-button" id="open-button">open space modal</button>
+      </div>
+      <div class="modal" id="modal">
+        <h2 class="modal-heading">Modal Title</h2>
+        <p class="modal-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+          minima doloremque distinctio totam quos quasi, sequi soluta cupiditate
+          vero ratione quo ipsa excepturi id commodi iusto, dolorum ducimus
+          voluptatum aut cum sint quod repudiandae! Minima rem similique rerum
+          ea nemo?
+        </p>
+        <div class="modal-bottom-buttons">
+          <button class="close" id="close">close</button>
+          <button class="save-changes" id="save-changes">save changes</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const openButton = document.getElementById('open-button');
+      const modal = document.getElementById('modal');
+      const close = document.getElementById('close');
+      const saveChanges = document.getElementById('save-changes');
+
+      function openModal() {
+        modal.style.display = 'block';
+        document.body.style.backgroundColor = 'rgba(108, 105, 105, 0.212)';
+      }
+
+      function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.backgroundColor = 'transparent';
+      }
+
+      document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('container')) {
+          closeModal();
+        }
+      });
+
+      openButton.addEventListener('click', openModal);
+      close.addEventListener('click', closeModal);
+      saveChanges.addEventListener('click', closeModal);
+      modal.addEventListener('click', closeModal);
+    </script>
+  </body>
+</html>
